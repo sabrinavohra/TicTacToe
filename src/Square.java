@@ -57,9 +57,16 @@ public class Square {
     /**
      * @return the marker for the square
      */
-    public void drawSquare(Graphics g, int x, int y, int length) {
+    public void drawSquare(Graphics g, int x, int y, int length, Image images) {
         g.setColor(Color.black);
         g.drawRect(x, y, length, length);
+        if(marker == "O") {
+            g.setColor(Color.black);
+            g.drawString("O", x, y);
+        }
+        else if(marker == "X") {
+            g.drawString("X", x, y);
+        }
     }
 
     public String toString() {

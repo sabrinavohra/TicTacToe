@@ -21,8 +21,8 @@ public class TicTacToeViewer extends JFrame{
         this.setVisible(true);
         this.board = board;
         theImages = new Image[2];
-        theImages[0] = new ImageIcon("Resources/X.jpg").getImage();
-        theImages[1] = new ImageIcon("Resources/O.jpg").getImage();
+        theImages[0] = new ImageIcon("Resources/X.png").getImage();
+        theImages[1] = new ImageIcon("Resources/O.png").getImage();
     }
 
     public void paint(Graphics g) {
@@ -35,7 +35,7 @@ public class TicTacToeViewer extends JFrame{
             for(int j = 0; j < 3; j++) {
                 g.drawString(print, X_BUFFER / 2, Y_BUFFER + (SIDE_LENGTH * i) + SIDE_LENGTH / 2);
                 Square s = new Square(i, j);
-                s.drawSquare(g, X_BUFFER + (SIDE_LENGTH * i), Y_BUFFER + (SIDE_LENGTH * j), SIDE_LENGTH);
+                s.drawSquare(g, X_BUFFER + (SIDE_LENGTH * i), Y_BUFFER + (SIDE_LENGTH * j), SIDE_LENGTH, theImages[0]);
             }
         }
     }
