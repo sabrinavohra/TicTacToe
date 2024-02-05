@@ -58,18 +58,29 @@ public class Square {
     /**
      * @return the marker for the square
      */
-    public void drawSquare(Graphics g, int xBuffer, int yBuffer, int length, Image[] theImages, TicTacToeViewer t) {
+    public void drawSquare(Graphics g, int x, int y, int length, Image[] theImages, TicTacToeViewer t) {
         g.setColor(Color.black);
-        g.drawRect(xBuffer, yBuffer, length, length);
-        if(marker.equals("0")) {
-            g.drawImage(theImages[0], xBuffer, yBuffer, t);
+        g.drawRect(x, y, length, length);
+        if(marker.equals(TicTacToe.X_MARKER)) {
+            g.drawImage(theImages[0], x, y, length, length, t);
         }
-        else if(marker.equals("X")) {
-            g.drawImage(theImages[1], xBuffer, yBuffer, t);
+        if(marker.equals(TicTacToe.O_MARKER)) {
+            g.drawImage(theImages[1], x, y, length, length, t);
         }
         if(isWinningSquare) {
             g.setColor(Color.green);
-            g.fillRect(xBuffer, yBuffer, length, length);
+            g.fillRect(x, y, length, length);
+            g.setColor(Color.black);
+            int xPrintPoint = 290;
+            int yPrintPoint = 650;
+            if(marker.equals(TicTacToe.X_MARKER)) {
+                g.drawImage(theImages[0], x, y, length, length, t);
+                g.drawString("X WINS!", xPrintPoint, yPrintPoint);
+            }
+            else if(marker.equals(TicTacToe.O_MARKER)) {
+                g.drawImage(theImages[1], x, y, length, length, t);
+                g.drawString("O WINS!", xPrintPoint, yPrintPoint);
+            }
         }
     }
 
