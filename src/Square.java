@@ -1,3 +1,4 @@
+// Sabrina Vohra
 import java.awt.*;
 
 /**
@@ -57,15 +58,18 @@ public class Square {
     /**
      * @return the marker for the square
      */
-    public void drawSquare(Graphics g, int x, int y, int length, Image images) {
+    public void drawSquare(Graphics g, int x, int y, int length, Image[] theImages, TicTacToeViewer t) {
         g.setColor(Color.black);
         g.drawRect(x, y, length, length);
-        if(marker == "O") {
-            g.setColor(Color.black);
-            g.drawString("O", x, y);
+        if(marker.equals("0")) {
+            g.drawImage(theImages[0], x, y, t);
         }
-        else if(marker == "X") {
-            g.drawString("X", x, y);
+        else if(marker.equals("X")) {
+            g.drawImage(theImages[1], x, y, t);
+        }
+        if(isWinningSquare) {
+            g.setColor(Color.green);
+            g.fillRect(x, y, length, length);
         }
     }
 

@@ -1,3 +1,4 @@
+// Sabrina Vohra
 import javax.swing.JFrame;
 import java.awt.*;
 import javax.swing.ImageIcon;
@@ -11,8 +12,6 @@ public class TicTacToeViewer extends JFrame{
         private static final int Y_BUFFER = 60;
         private Square[][] board;
         private Image[] theImages;
-        private Image theX;
-        private Image theO;
 
     public TicTacToeViewer(Square[][] board) {
         this.setSize(WINDOW_HEIGHT, WINDOW_WIDTH);
@@ -29,13 +28,12 @@ public class TicTacToeViewer extends JFrame{
         g.setColor(Color.white);
         g.fillRect(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
         g.setColor(Color.black);
-        for(int i = 0; i < 3; i++) {
-            String print = i + "";
-            g.drawString(print, (X_BUFFER)+ (SIDE_LENGTH * i) + SIDE_LENGTH / 2, Y_BUFFER - 10);
-            for(int j = 0; j < 3; j++) {
+        for(int i = 0; i < board.length; i++) {
+            for(int j = 0; j < board[0].length; j++) {
+                String print = i + "";
+                g.drawString(print, (X_BUFFER) + (SIDE_LENGTH * i) + SIDE_LENGTH / 2, Y_BUFFER - 10);
                 g.drawString(print, X_BUFFER / 2, Y_BUFFER + (SIDE_LENGTH * i) + SIDE_LENGTH / 2);
-                Square s = new Square(i, j);
-                s.drawSquare(g, X_BUFFER + (SIDE_LENGTH * i), Y_BUFFER + (SIDE_LENGTH * j), SIDE_LENGTH, theImages[0]);
+                board[i][j].drawSquare(g, X_BUFFER + (SIDE_LENGTH * i), Y_BUFFER + (SIDE_LENGTH * j), SIDE_LENGTH, theImages, this);
             }
         }
     }

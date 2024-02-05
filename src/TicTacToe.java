@@ -1,3 +1,4 @@
+// Sabrina Vohra
 /**
  * A TicTacToe game adopted from CodeHS
  * Written to be used for either the console or
@@ -11,6 +12,7 @@
  */
 
 import java.util.Scanner;
+import java.awt.Graphics;
 
 public class TicTacToe
 {
