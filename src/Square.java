@@ -58,18 +58,18 @@ public class Square {
     /**
      * @return the marker for the square
      */
-    public void drawSquare(Graphics g, int x, int y, int length, Image[] theImages, TicTacToeViewer t) {
+    public void drawSquare(Graphics g, int xBuffer, int yBuffer, int length, Image[] theImages, TicTacToeViewer t) {
         g.setColor(Color.black);
-        g.drawRect(x, y, length, length);
+        g.drawRect(xBuffer, yBuffer, length, length);
         if(marker.equals("0")) {
-            g.drawImage(theImages[0], x, y, t);
+            g.drawImage(theImages[0], xBuffer, yBuffer, t);
         }
         else if(marker.equals("X")) {
-            g.drawImage(theImages[1], x, y, t);
+            g.drawImage(theImages[1], xBuffer, yBuffer, t);
         }
         if(isWinningSquare) {
             g.setColor(Color.green);
-            g.fillRect(x, y, length, length);
+            g.fillRect(xBuffer, yBuffer, length, length);
         }
     }
 
