@@ -124,6 +124,7 @@ public class TicTacToe
             } else {
                 System.out.println("That space is taken, or you entered an invalid row/col");
             }
+            // Repaints window after each turn (so X's and O's are drawn / refreshed)
             window.repaint();
         }
 
