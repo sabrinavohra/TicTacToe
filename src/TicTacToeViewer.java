@@ -26,7 +26,7 @@ public class TicTacToeViewer extends JFrame{
         this.it = it;
         // Declares four primary front end initializations
         // Sets window size
-        this.setSize(WINDOW_HEIGHT, WINDOW_WIDTH);
+        this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         // Sets title of window
         this.setTitle("TicTacToe");
         // Makes window exit when closed (game won't run in background)
@@ -59,11 +59,11 @@ public class TicTacToeViewer extends JFrame{
             g.drawString(print, (X_BUFFER) + (SIDE_LENGTH * i) + SIDE_LENGTH / 2, Y_BUFFER - 10);
             g.drawString(print, X_BUFFER / 2, Y_BUFFER + (SIDE_LENGTH * i) + SIDE_LENGTH / 2);
             // Sets x-coordinate for each Square's beginning
-            int x = X_BUFFER + (i * SIDE_LENGTH);
+            int y = Y_BUFFER + (i * SIDE_LENGTH);
             // Traverses through column
             for(int j = 0; j < board[0].length; j++) {
                 // Sets y-coordinate for each Square's beginning
-                int y = Y_BUFFER + (j * SIDE_LENGTH);
+                int x = X_BUFFER + (j * SIDE_LENGTH);
                 // Calls drawSquare() method to draw each Square accordingly
                 board[i][j].drawSquare(g, x, y, SIDE_LENGTH, theImages, this);
                 // Checks for a tie
