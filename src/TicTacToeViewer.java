@@ -51,14 +51,29 @@ public class TicTacToeViewer extends JFrame{
         g.fillRect(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
         // Resets color to black
         g.setColor(Color.black);
+        // Traverses through row
         for(int i = 0; i < board.length; i++) {
-                String print = i + "";
-                g.drawString(print, (X_BUFFER) + (SIDE_LENGTH * i) + SIDE_LENGTH / 2, Y_BUFFER - 10);
-                g.drawString(print, X_BUFFER / 2, Y_BUFFER + (SIDE_LENGTH * i) + SIDE_LENGTH / 2);
+            // Creates String to print for colum and row numbers
+            String print = i + "";
+            // Draws column and row numbers above / to the side of the middle of each Square
+            g.drawString(print, (X_BUFFER) + (SIDE_LENGTH * i) + SIDE_LENGTH / 2, Y_BUFFER - 10);
+            g.drawString(print, X_BUFFER / 2, Y_BUFFER + (SIDE_LENGTH * i) + SIDE_LENGTH / 2);
+            // Sets x-coordinate for each Square's beginning
             int x = X_BUFFER + (i * SIDE_LENGTH);
-                for(int j = 0; j < board[0].length; j++) {
-                    int y = Y_BUFFER + (j * SIDE_LENGTH);
-                    board[i][j].drawSquare(g, x, y, SIDE_LENGTH, theImages, this);
+            // Traverses through column
+            for(int j = 0; j < board[0].length; j++) {
+                // Sets y-coordinate for each Square's beginning
+                int y = Y_BUFFER + (j * SIDE_LENGTH);
+                // Calls drawSquare() method to draw each Square accordingly
+                board[i][j].drawSquare(g, x, y, SIDE_LENGTH, theImages, this);
+                // Checks for a tie
+                if(it.checkTie()) {
+                    // Initializes centered coordinate points
+                    int xPrintPoint = 290;
+                    int yPrintPoint = 650;
+                    // Prints tie message at center coordinates
+                    g.drawString("IT'S A TIE!", xPrintPoint, yPrintPoint);
+                }
             }
         }
     }
