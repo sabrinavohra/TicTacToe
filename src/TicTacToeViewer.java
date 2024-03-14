@@ -38,8 +38,8 @@ public class TicTacToeViewer extends JFrame{
         // Sets size of Image Array
         theImages = new Image[2];
         // Initializes X and O images
-        theImages[0] = new ImageIcon("Resources/X.png").getImage();
-        theImages[1] = new ImageIcon("Resources/O.png").getImage();
+        theImages[0] = new ImageIcon("Resources/anyar.png").getImage();
+        theImages[1] = new ImageIcon("Resources/kirinold.png").getImage();
     }
 
     // Paints the board accordingly
